@@ -4,8 +4,9 @@ import 'package:burgerking_mobileapp/widget/exploremore.dart';
 import 'package:burgerking_mobileapp/widget/topoftheweek.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/widget/categorywidget.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:burgerking_mobileapp/others/qrcode.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -16,7 +17,6 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   int currentPage = 0;
-  bool _isScanning = false;
 
   Future<void> _requestCameraPermission() async {
     final status = await Permission.camera.request();
@@ -56,16 +56,20 @@ class _homepageState extends State<homepage> {
                           onPressed: () {},
                           icon: const Icon(
                             Icons.search,
+                            color: Colors.black,
                           ),
                         ),
                         suffixIcon: IconButton(
                           onPressed: () {
-                            Future<void> _requestCameraPermission;
-                            setState(() {
-                              _isScanning = true;
-                            });
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => QRViewForm(),
+                            ));
+                            // setState(() {});
                           },
-                          icon: const Icon(Icons.qr_code_scanner_sharp),
+                          icon: const Icon(
+                            Icons.qr_code_scanner_sharp,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
