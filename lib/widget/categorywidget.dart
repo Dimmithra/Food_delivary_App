@@ -1,3 +1,4 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
@@ -26,7 +27,7 @@ class categorywidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 125,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -57,18 +58,18 @@ class DummyCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.circular(5),
+            color: kcard_background_colors,
+            borderRadius: BorderRadius.circular(25),
             boxShadow: const [boxshadow],
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
                 Image(
                   image: AssetImage(img),
-                  width: 50,
-                  height: 50,
+                  width: 75,
+                  height: 75,
                 ),
                 Text(
                   catname,

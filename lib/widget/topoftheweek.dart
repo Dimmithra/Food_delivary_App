@@ -1,3 +1,4 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
@@ -48,6 +49,7 @@ class Topoftheweekwidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 280,
+      width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: topoftheweeklist.length,
@@ -87,10 +89,10 @@ class Topofweekcard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
-          width: 350,
+          width: 250,
           height: 150,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: kcard_background_colors,
             borderRadius: BorderRadius.circular(25),
             boxShadow: const [boxshadow],
           ),

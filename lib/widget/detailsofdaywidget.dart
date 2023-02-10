@@ -1,3 +1,4 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
@@ -50,7 +51,8 @@ class DetailsOfDayWidght extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 280,
+      height: 275,
+      width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: detailsofdayitems.length,
@@ -92,11 +94,11 @@ class Detailsofdaycard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
-          width: 350,
-          height: 150,
+          width: 250,
+          height: 100,
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(25),
+            color: kcard_background_colors,
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [boxshadow],
           ),
           child: Padding(

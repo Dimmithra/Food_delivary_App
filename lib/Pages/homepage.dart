@@ -1,12 +1,13 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
 import 'package:burgerking_mobileapp/widget/detailsofdaywidget.dart';
 import 'package:burgerking_mobileapp/widget/exploremore.dart';
 import 'package:burgerking_mobileapp/widget/topoftheweek.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/widget/categorywidget.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:burgerking_mobileapp/others/qrcode.dart';
+import 'package:burgerking_mobileapp/Pages/favourite.dart';
+import 'package:burgerking_mobileapp/Pages/myprofile.dart';
+import 'package:burgerking_mobileapp/widget/searchbar.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -18,177 +19,133 @@ class homepage extends StatefulWidget {
 class _homepageState extends State<homepage> {
   int currentPage = 0;
 
-  Future<void> _requestCameraPermission() async {
-    final status = await Permission.camera.request();
-    if (status != PermissionStatus.granted) {
-      print('Camera permission not granted');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: AppBar(
-            title: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.symmetric(vertical: 15.0),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide:
-                              const BorderSide(width: 10, color: Colors.white),
-                        ),
-                        hintText: 'How I can Help You',
-                        prefixIcon: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.search,
-                            color: Colors.black,
-                          ),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => QRViewForm(),
-                            ));
-                            // setState(() {});
-                          },
-                          icon: const Icon(
-                            Icons.qr_code_scanner_sharp,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+    return Scaffold(
+      backgroundColor: kbackground_color,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              child: Stack(
+                children: const [
+                  Image(
+                    image: AssetImage('assets/images/appbarbacground.png'),
+                    fit: BoxFit.cover,
                   ),
-                ),
-              ],
+                  SearchBar()
+                ],
+              ),
             ),
-            backgroundColor: Colors.transparent,
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(5),
-            child: Column(
-              children: [
-                const Image(
-                  image: AssetImage("assets/images/appbarbacground.png"),
-                  fit: BoxFit.cover,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Categories',
-                        style: fontsizemain,
-                      ),
-                    ],
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: const [
+                  Text(
+                    'Categories',
+                    style: fontsizemain,
                   ),
-                ),
-                categorywidget(),
-                //Details of the day widget
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Details of the day',
-                        style: fontsizemain,
-                      ),
-                    ],
-                  ),
-                ),
-                DetailsOfDayWidght(),
-                //Top Of the Week
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Top Of the Week',
-                        style: fontsizemain,
-                      ),
-                    ],
-                  ),
-                ),
-                Topoftheweekwidget(),
-                // expore more
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Explore More',
-                        style: fontsizemain,
-                      ),
-                    ],
-                  ),
-                ),
-                Exploremorewidget(),
-              ],
+                ],
+              ),
             ),
-          ),
-        ),
-
-        //Bottom Navigation Bar
-        bottomNavigationBar: NavigationBar(
-          destinations: const [
-            NavigationDestination(
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                label: ''),
-            NavigationDestination(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                label: ''),
-            NavigationDestination(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                label: ''),
+            categorywidget(),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: const [
+                  Text(
+                    'Details of this week',
+                    style: fontsizemain,
+                  ),
+                ],
+              ),
+            ),
+            DetailsOfDayWidght(),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: const [
+                  Text(
+                    'Top of this week',
+                    style: fontsizemain,
+                  ),
+                ],
+              ),
+            ),
+            Topoftheweekwidget(),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: const [
+                  Text(
+                    'Explore More',
+                    style: fontsizemain,
+                  ),
+                ],
+              ),
+            ),
+            Exploremorewidget(),
           ],
-          onDestinationSelected: (int index) {
-            setState(
-              () {
-                currentPage = index;
-              },
-            );
-          },
-          selectedIndex: currentPage,
-          backgroundColor: const Color.fromARGB(255, 180, 102, 0),
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const favourite(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.favorite_rounded),
+                color: kicon_Color,
+                iconSize: 25,
+              ),
+              label: ''),
+          NavigationDestination(
+            icon: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop(
+                  MaterialPageRoute(
+                    builder: (context) => const homepage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.home),
+              color: kicon_Color,
+              iconSize: 25,
+            ),
+            label: '',
+          ),
+          NavigationDestination(
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const MyProfile(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.person),
+                color: kicon_Color,
+                iconSize: 25,
+              ),
+              label: '')
+        ],
+        onDestinationSelected: (int index) {
+          setState(
+            () {
+              currentPage = index;
+            },
+          );
+        },
+        selectedIndex: currentPage,
+        //navgation bar color
+        backgroundColor: kBottom_nav_bar_background_color,
       ),
     );
   }
 }
-// final status = await Permission.camera.status;
-// if (status == PermissionStatus.granted) {
-//   setState(() {
-//     _isScanning = true;
-//   });
-// } else {
-//   await _requestCameraPermission();
-// }

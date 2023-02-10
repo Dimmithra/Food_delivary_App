@@ -3,7 +3,6 @@ import 'dart:ffi';
 import 'dart:io';
 
 import 'package:burgerking_mobileapp/Pages/homepage.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:burgerking_mobileapp/design/button.dart';
@@ -33,7 +32,10 @@ class _QRViewFormState extends State<QRViewForm> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Expanded(flex: 4, child: _buildQrView(context)),
+          Expanded(
+            flex: 4,
+            child: _buildQrView(context),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -80,8 +82,8 @@ class _QRViewFormState extends State<QRViewForm> {
       onQRViewCreated: _onQRViewCreated,
       overlay: QrScannerOverlayShape(
           borderColor: Colors.blue,
-          borderRadius: 10,
-          borderLength: 30,
+          borderRadius: 15,
+          borderLength: 20,
           borderWidth: 10,
           cutOutSize: scanArea),
       onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),

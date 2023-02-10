@@ -1,3 +1,4 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
@@ -97,10 +98,10 @@ class ExporemoreCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Container(
-          width: 350,
+          width: 250,
           height: 150,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: kcard_background_colors,
             borderRadius: BorderRadius.circular(25),
             boxShadow: const [boxshadow],
           ),
@@ -144,12 +145,12 @@ class ExporemoreCard extends StatelessWidget {
                         },
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       rating1,
                       style: kratingNumber,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       rating2,
                       style: kratingNumber,
