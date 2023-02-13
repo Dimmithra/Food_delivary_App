@@ -1,8 +1,12 @@
 import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
+import 'package:burgerking_mobileapp/others/bottomnavbar.dart';
+import 'package:burgerking_mobileapp/others/daytimeicon.dart';
+import 'package:burgerking_mobileapp/others/menu_option_buttton.dart';
 import 'package:burgerking_mobileapp/widget/detailsofdaywidget.dart';
 import 'package:burgerking_mobileapp/widget/exploremore.dart';
 import 'package:burgerking_mobileapp/widget/topoftheweek.dart';
+import 'package:burgerking_mobileapp/widget/username.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/widget/categorywidget.dart';
 import 'package:burgerking_mobileapp/Pages/favourite.dart';
@@ -17,7 +21,7 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
-  int currentPage = 0;
+  int currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +34,22 @@ class _homepageState extends State<homepage> {
             SizedBox(
               child: Stack(
                 children: const [
-                  Image(
-                    image: AssetImage('assets/images/appbarbacground.png'),
-                    fit: BoxFit.cover,
-                  ),
-                  SearchBar()
+                  DayTimeImage(),
+                  SearchBar(),
                 ],
               ),
             ),
+            //HomeMain(),
             Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
                 children: const [
                   Text(
                     'Categories',
-                    style: fontsizemain,
+                    style: kfontsizemain,
                   ),
+                  Spacer(),
+                  MenuOptionButton(),
                 ],
               ),
             ),
@@ -56,8 +60,10 @@ class _homepageState extends State<homepage> {
                 children: const [
                   Text(
                     'Details of this week',
-                    style: fontsizemain,
+                    style: kfontsizemain,
                   ),
+                  Spacer(),
+                  MenuOptionButton(),
                 ],
               ),
             ),
@@ -68,8 +74,10 @@ class _homepageState extends State<homepage> {
                 children: const [
                   Text(
                     'Top of this week',
-                    style: fontsizemain,
+                    style: kfontsizemain,
                   ),
+                  Spacer(),
+                  MenuOptionButton(),
                 ],
               ),
             ),
@@ -80,8 +88,10 @@ class _homepageState extends State<homepage> {
                 children: const [
                   Text(
                     'Explore More',
-                    style: fontsizemain,
+                    style: kfontsizemain,
                   ),
+                  Spacer(),
+                  MenuOptionButton(),
                 ],
               ),
             ),
@@ -89,6 +99,7 @@ class _homepageState extends State<homepage> {
           ],
         ),
       ),
+      //bottomNavigationBar: BottomNavBar(),
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(
@@ -108,11 +119,11 @@ class _homepageState extends State<homepage> {
           NavigationDestination(
             icon: IconButton(
               onPressed: () {
-                Navigator.of(context).pop(
-                  MaterialPageRoute(
-                    builder: (context) => const homepage(),
-                  ),
-                );
+                // Navigator.of(context).pop(
+                //   MaterialPageRoute(
+                //     builder: (context) => const homepage(),
+                //   ),
+                // );
               },
               icon: const Icon(Icons.home),
               color: kicon_Color,

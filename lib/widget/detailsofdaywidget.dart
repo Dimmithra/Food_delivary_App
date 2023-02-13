@@ -1,5 +1,6 @@
 import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
+import 'package:burgerking_mobileapp/others/favourite_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -99,23 +100,28 @@ class Detailsofdaycard extends StatelessWidget {
           decoration: BoxDecoration(
             color: kcard_background_colors,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: const [boxshadow],
+            boxShadow: const [kboxshadow],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Column(
               children: [
-                Container(
-                  child: Image(
-                    image: AssetImage(img),
-                    width: 150,
-                    height: 150,
-                  ),
+                Row(
+                  children: [
+                    Container(
+                      child: Image(
+                        image: AssetImage(img),
+                        width: 150,
+                        height: 150,
+                      ),
+                    ),
+                    const FavouriteIcon(),
+                  ],
                 ),
-                Text(pname, style: fontstyledetailsofdayH1),
+                Text(pname, style: kfontstyledetailsofdayH1),
                 Text(
                   pdiscription,
-                  style: detailsofdaytext2,
+                  style: kdetailsofdaytext2,
                 ),
                 const Divider(
                   color: Colors.black,

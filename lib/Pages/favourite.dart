@@ -1,3 +1,5 @@
+import 'package:burgerking_mobileapp/design/colors.dart';
+import 'package:burgerking_mobileapp/others/daytimeicon.dart';
 import 'package:flutter/material.dart';
 
 class favourite extends StatelessWidget {
@@ -6,8 +8,17 @@ class favourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favourite'),
+      backgroundColor: kbackground_color,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              child: Stack(children: [
+                DayTimeImage(),
+              ]),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -94,7 +94,7 @@ class Topofweekcard extends StatelessWidget {
           decoration: BoxDecoration(
             color: kcard_background_colors,
             borderRadius: BorderRadius.circular(25),
-            boxShadow: const [boxshadow],
+            boxShadow: const [kboxshadow],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -107,10 +107,10 @@ class Topofweekcard extends StatelessWidget {
                     height: 150,
                   ),
                 ),
-                Text(pname, style: fontstyledetailsofdayH1),
+                Text(pname, style: kfontstyledetailsofdayH1),
                 Text(
                   pdiscription,
-                  style: detailsofdaytext2,
+                  style: kdetailsofdaytext2,
                 ),
                 const Divider(
                   color: Colors.black,

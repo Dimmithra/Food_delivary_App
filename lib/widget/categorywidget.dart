@@ -60,7 +60,7 @@ class DummyCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: kcard_background_colors,
             borderRadius: BorderRadius.circular(25),
-            boxShadow: const [boxshadow],
+            boxShadow: const [kboxshadow],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -73,7 +73,7 @@ class DummyCard extends StatelessWidget {
                 ),
                 Text(
                   catname,
-                  style: categorywidgettextstyle,
+                  style: kcategorywidgettextstyle,
                 ),
               ],
             ),
