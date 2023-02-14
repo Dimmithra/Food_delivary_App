@@ -21,7 +21,7 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
-  int currentPage = 1;
+  // int currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -99,64 +99,58 @@ class _homepageState extends State<homepage> {
           ],
         ),
       ),
-      //bottomNavigationBar: BottomNavBar(),
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(
-              icon: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const favourite(),
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.favorite_rounded),
-                color: kicon_Color,
-                iconSize: 25,
-              ),
-              label: ''),
-          NavigationDestination(
-            icon: IconButton(
-              onPressed: () {
-                // Navigator.of(context).pop(
-                //   MaterialPageRoute(
-                //     builder: (context) => const homepage(),
-                //   ),
-                // );
-              },
-              icon: const Icon(Icons.home),
-              color: kicon_Color,
-              iconSize: 25,
-            ),
-            label: '',
-          ),
-          NavigationDestination(
-              icon: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MyProfile(),
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.person),
-                color: kicon_Color,
-                iconSize: 25,
-              ),
-              label: '')
-        ],
-        onDestinationSelected: (int index) {
-          setState(
-            () {
-              currentPage = index;
-            },
-          );
-        },
-        selectedIndex: currentPage,
-        //navgation bar color
-        backgroundColor: kBottom_nav_bar_background_color,
-      ),
+      // bottomNavigationBar: const BottomNavBar(),
+      // bottomNavigationBar: NavigationBar(
+      //   destinations: [
+      //     NavigationDestination(
+      //         icon: IconButton(
+      //           onPressed: () {
+      //             Navigator.of(context).push(
+      //               MaterialPageRoute(
+      //                 builder: (context) => const favourite(),
+      //               ),
+      //             );
+      //           },
+      //           icon: const Icon(Icons.favorite_rounded),
+      //           color: kicon_Color,
+      //           iconSize: 25,
+      //         ),
+      //         label: ''),
+      //     NavigationDestination(
+      //       icon: IconButton(
+      //         onPressed: () {},
+      //         icon: const Icon(Icons.home),
+      //         color: kicon_Color,
+      //         iconSize: 25,
+      //       ),
+      //       label: '',
+      //     ),
+      //     NavigationDestination(
+      //         icon: IconButton(
+      //           onPressed: () {
+      //             Navigator.of(context).push(
+      //               MaterialPageRoute(
+      //                 builder: (context) => const MyProfile(),
+      //               ),
+      //             );
+      //           },
+      //           icon: const Icon(Icons.person),
+      //           color: kicon_Color,
+      //           iconSize: 25,
+      //         ),
+      //         label: '')
+      //   ],
+      //   onDestinationSelected: (int index) {
+      //     setState(
+      //       () {
+      //         currentPage = index;
+      //       },
+      //     );
+      //   },
+      //   selectedIndex: currentPage,
+      //   //navgation bar color
+      //   backgroundColor: kBottom_nav_bar_background_color,
+      // ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:burgerking_mobileapp/Pages/favourite.dart';
 import 'package:flutter/material.dart';
 
 const ktextcolor = Colors.black;
@@ -24,5 +25,18 @@ const kbottomnavbartext = TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.white,
 );
-const khomepage_user =
-    TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold);
+const khomepage_user = TextStyle(
+  fontSize: 30,
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+);
+const kfavourite_header_text = TextStyle(
+  fontSize: 30,
+  color: Colors.blueGrey,
+  fontWeight: FontWeight.bold,
+);
+const kpersonal_header_text = TextStyle(
+  fontSize: 30,
+  color: Colors.blueGrey,
+  fontWeight: FontWeight.bold,
+);

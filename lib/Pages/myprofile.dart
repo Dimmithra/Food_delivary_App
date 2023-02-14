@@ -1,4 +1,6 @@
 import 'package:burgerking_mobileapp/design/colors.dart';
+import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
+import 'package:burgerking_mobileapp/others/bottomnavbar.dart';
 import 'package:burgerking_mobileapp/others/daytimeicon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -15,9 +17,20 @@ class MyProfile extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              child: Stack(children: [
-                DayTimeImage(),
-              ]),
+              child: Stack(
+                children: const [
+                  DayTimeImage(),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 75),
+                      child: Text(
+                        'Profile',
+                        style: kfavourite_header_text,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),

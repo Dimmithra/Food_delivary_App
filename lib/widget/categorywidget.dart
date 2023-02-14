@@ -1,7 +1,9 @@
 import 'package:burgerking_mobileapp/design/colors.dart';
 import 'package:burgerking_mobileapp/design/mainFormDesign.dart';
+import 'package:burgerking_mobileapp/models/strore_model.dart';
 import 'package:flutter/material.dart';
 import 'package:burgerking_mobileapp/design/itemstyle.dart';
+import 'package:provider/provider.dart';
 
 class CategoryModel {
   String categoryName;
@@ -44,7 +46,7 @@ class categorywidget extends StatelessWidget {
 }
 
 class DummyCard extends StatelessWidget {
-  const DummyCard({Key? key, required this.catname, this.img = 'dadsa'})
+  const DummyCard({Key? key, required this.catname, this.img = 'image'})
       : super(key: key);
 
   final String catname;

@@ -1,15 +1,68 @@
-// import 'package:flutter/material.dart';
+import 'dart:math';
 
-// class BottomNavBar extends StatefulWidget {
-//   const BottomNavBar({super.key});
+import 'package:burgerking_mobileapp/Pages/favourite.dart';
+import 'package:burgerking_mobileapp/Pages/homepage.dart';
+import 'package:burgerking_mobileapp/Pages/myprofile.dart';
+import 'package:burgerking_mobileapp/design/colors.dart';
+import 'package:flutter/material.dart';
 
-//   @override
-//   State<BottomNavBar> createState() => _BottomNavBarState();
-// }
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
 
-// class _BottomNavBarState extends State<BottomNavBar> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(child: DefaultTabController(length: 3, child: Scaffold(body: TabBarView(children: ))),);
-//   }
-// }
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  static const List<Widget> _widgetitems = <Widget>[
+    Favourite(),
+    homepage(),
+    MyProfile(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return const SafeArea(
+      child: DefaultTabController(
+        initialIndex: 1,
+        length: 3,
+        child: Scaffold(
+          body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            children: _widgetitems,
+          ),
+          bottomNavigationBar: ColoredBox(
+            color: kBottom_nav_bar_background_color,
+            child: TabBar(
+              indicatorWeight: 3,
+              tabs: [
+                Tab(
+                  child: Icon(
+                    Icons.favorite,
+                    color: kicon_Color,
+                  ),
+                ),
+                Tab(
+                  child: Icon(
+                    Icons.home,
+                    color: kicon_Color,
+                  ),
+                ),
+                Tab(
+                  child: Icon(
+                    Icons.person,
+                    color: kicon_Color,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
